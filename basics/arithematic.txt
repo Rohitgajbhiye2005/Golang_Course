@@ -1,0 +1,56 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	var a, b int = 10, 3
+	var result int
+
+	result = a + b
+	fmt.Println("The addition is ", result)
+
+	result = a - b
+	fmt.Println("The substraction is", result)
+
+	result = a * b
+	fmt.Println("The multiplication is", result)
+
+	result = a / b
+	fmt.Println("The division is ", result)
+
+	result = a % b
+	fmt.Println("The modulos is ", result)
+
+	const p float64 = 22 / 7.0
+	fmt.Println("the answer is ", p)
+	// acc to if we divide the int by int it result in int
+	// go reads the program from right to left
+
+	// overflow and underflow
+
+	// overflow with signed integer
+	var max int64 = 9223372036854775807 // max value for int64
+	fmt.Println(max)
+
+	var maxi int64 = max + 1
+	fmt.Println(maxi)
+
+	// overflow with unsigned integer
+
+	var umax uint64 = 18446744073709551615 // max value for uint64
+	fmt.Println(umax)
+
+	var umaxi = umax + 1
+	fmt.Println(umaxi)
+
+	// underflow
+
+	var min float64 = 1.0e-323 // smallest number
+	fmt.Println(min)
+
+	min = min / float64(math.MaxUint64) // lowest value not handled so results in zero
+	fmt.Println(min)
+}

@@ -1,0 +1,23 @@
+package main
+
+func main() {
+	//  their is no while loop in go the for loop is act as the while loop
+
+	// i := 1
+	// for i <= 10 {
+	// 	fmt.Println(i)
+	// 	i++
+	// }
+
+	// for loop with break
+	// sum := 1
+	// for sum < 10 {
+	// 	if sum > 5 {
+	// 		break
+	// 	}
+	// 	sum += sum
+	// 	sum++
+	// }
+	// fmt.Println(sum)
+
+}

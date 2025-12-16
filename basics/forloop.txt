@@ -1,0 +1,55 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	// simple iteration over a range
+	for i := 1; i <= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// iterate over collection
+	nums := []int{1, 2, 3, 4, 5, 6}
+
+	for index, value := range nums {
+		fmt.Printf("Index is %d, Value is %d\n", index, value) // we have to us the plcaholder so we use the printf
+	}
+
+	// break and continue
+
+	// for i := 1; i <= 10; i++ {
+	// 	if i%2==0{
+	// 		continue
+	// 	}
+	// 	fmt.Println("Odd number is ",i)
+
+	// 	if i == 5 {
+	// 		break
+	// 	}
+	// 	fmt.Println(i)
+	// }
+
+	//printing the star pattern
+	rows := 5
+	//outer loop
+	for i := 1; i <= rows; i++ {
+		// inner loop for spaces
+		for j := 1; j <= rows-i; j++ {
+			fmt.Print(" ")
+		}
+		// inner loop for stars
+		for k := 1; k <= 2*i-1; k++ {
+			fmt.Print("*")
+		}
+		// for move to next line
+		fmt.Println()
+	}
+
+	// newwe update
+
+	for i := range 10 {
+		fmt.Println(i)
+	}
+
+}

@@ -1,0 +1,38 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func main() {
+
+	source := rand.NewSource(time.Now().UnixNano())
+	random := rand.New(source)
+
+	// gen the random number
+	tar := random.Intn(100) + 1
+
+	// welcoming the user
+
+	fmt.Println("Hello welcome to the number guessing game")
+
+	// user input
+
+	var input int
+
+	for {
+		fmt.Println("Enter the input number")
+		fmt.Scanln(&input)
+		if input == tar {
+			fmt.Println("Congratulation you have won")
+			break
+		} else if input > tar {
+			fmt.Println("You guess the bigger number try again")
+		} else {
+			fmt.Println("You guess the smaller number try again")
+		}
+	}
+
+}

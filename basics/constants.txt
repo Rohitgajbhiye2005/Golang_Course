@@ -1,5 +1,17 @@
 package main
  
+
+const pi=3.14
+
+const GRAVITY=9.8
 func main(){
 	// its totally depend on the guide we can declare it in uppercase or lowercase with respect to client
+	const days int=10
+	const(
+		monday=1
+		tuesday=2
+		wednesday=3
+	)
+
+	
 }
