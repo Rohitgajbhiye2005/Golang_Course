@@ -1,0 +1,31 @@
+package main
+
+import "fmt"
+
+var middlename = "Gajbhiye"
+
+func main(){
+	var age int=10
+	var name string="rohit"
+	var name2 = "tushar"
+
+	count:=1
+	count2:="Hello"
+
+	fmt.Println(middlename)
+
+	// Default values
+	// numeric 0
+	// boolean false
+	// String blanck string ""
+	// pointers,slices,map,function and struct = nil
+
+
+	// Scopes of variable in go
+	fmt.Println(firstname)
+}
+
+func printname(){
+	firstname:="Rohit"
+	fmt.Println(firstname)
+}
