@@ -1,0 +1,21 @@
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+
+
+	//os doenst even let the defer to run its immidiate exit 
+
+	defer fmt.Println("deffered function")
+
+	fmt.Println("starting function")
+	// exit with status code 1
+	os.Exit(1)
+
+	fmt.Println("ending statement")
+
+}
