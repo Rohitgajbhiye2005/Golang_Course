@@ -1,0 +1,56 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	// normal sytax for the function declaration
+	// func <name>(parameters list)returntype{
+	// 	code base
+	// 	return value
+	// }
+
+	a := 1
+	b := 2
+	fmt.Println(add(a, b))
+
+	// anonymous function
+	greet := func() {
+		fmt.Println("Hello anonymous function")
+	}
+	greet()
+
+	// in go we can assign func to variable
+
+	ope := add
+
+	res := ope(3, 2)
+	fmt.Println(res)
+
+	resul := hello(5, 3, add)
+	fmt.Println(resul)
+
+	mult := result(2)
+	fmt.Println(mult(2))
+
+}
+
+func add(a, b int) int {
+	res := a + b
+	return res
+}
+
+//Imp
+// function that takes function as an argument
+
+func hello(x int, y int, operation func(int, int) int) int {
+	return operation(x, y)
+}
+
+// function that return the another fundtion
+
+func result(y int) func(int) int {
+	return func(x int) int {
+		return x * y
+	}
+}
