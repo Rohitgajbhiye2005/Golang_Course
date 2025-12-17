@@ -14,6 +14,7 @@ func main() {
 
 	fmt.Println("starting function")
 	// exit with status code 1
+	// staus code 0 is for succesed and other are for errors
 	os.Exit(1)
 
 	fmt.Println("ending statement")
