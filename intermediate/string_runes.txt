@@ -1,0 +1,45 @@
+package main
+
+import (
+	"fmt"
+	"unicode/utf8"
+)
+
+func main() {
+
+	// strings are immutibale in golang
+	mess := "Hello\n \tGolang!"       //string
+	message := `Hello world\n Golang` //rawstring
+	fmt.Println(mess)
+	fmt.Println(message)
+
+	fmt.Println("the length of the message is ", len(message))
+	fmt.Println("The first char of message is ", message[0]) // ASCII
+
+	greeting := "hello "
+	name := "Rohit"
+	fmt.Println(greeting + name)
+	str := "rohitgajbhiye"
+	str1 := "Apple"
+	str2 := "Banana"
+	str3 := "app"
+	fmt.Println(str1 < str2)
+	fmt.Println(str1 > str3)
+
+	for i, c := range str {
+		fmt.Printf("The index is %d and the char is %c\n", i, c)
+	}
+
+	fmt.Println("Rune count:", utf8.RuneCountInString(str))
+
+	// RUNES
+	var ch rune = 'a'
+
+	ne := 'र'
+	fmt.Println(ch)
+	fmt.Printf("%c\n", ne)
+
+	const nn = "रोहित"
+	fmt.Println(nn)
+
+}
