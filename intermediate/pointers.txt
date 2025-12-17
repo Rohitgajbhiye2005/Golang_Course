@@ -1,0 +1,13 @@
+package main
+
+import "fmt"
+
+func main() {
+	var ptr *int
+
+	var age int = 10
+	ptr = &age
+	fmt.Println(age)
+	fmt.Println(ptr)
+	fmt.Println(*ptr)  // derefenrcing the pointer value
+}
