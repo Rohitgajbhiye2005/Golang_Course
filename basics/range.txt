@@ -1,0 +1,11 @@
+package main
+
+import "fmt"
+
+func main() {
+	message := "Hello world"
+	for i, v := range message {
+		//fmt.Printf("The index is %d and the value is %d\n", i, v)
+		fmt.Printf("The index is %d and the rune char is %c\n", i, v)
+	}
+}
