@@ -1,0 +1,29 @@
+package main
+
+import "fmt"
+
+func main() {
+	res := fact(5)
+	fmt.Println(res)
+
+	result := sumofdigit(169828)
+	fmt.Println(result)
+}
+
+func fact(x int) int {
+
+	// base condition
+	if x == 0 || x == 1 {
+		return 1
+	}
+	//recursive case fact is equal to x*fact(x-1)
+	return x * fact(x-1)
+
+}
+
+func sumofdigit(x int) int {
+	if x < 10 {
+		return x
+	}
+	return x%10 + sumofdigit(x/10)
+}
