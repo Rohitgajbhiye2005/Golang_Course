@@ -1,0 +1,58 @@
+package main
+
+import (
+	"fmt"
+	"slices"
+)
+
+//var slicename[]elementtype    we dont give it size as it is slices it doesnt have specific size
+
+func main() {
+	// var nums[]int
+	// var nums1=[]int{1,2}
+	// nums2:=[]int{1,2,3}
+
+	// slice:=make([]int,4)
+
+	arr := [4]int{1, 2, 3, 4}
+	slice := arr[1:4]
+	fmt.Println(slice)
+
+	slice1 := append(slice, 6, 7)
+	fmt.Println(slice1)
+
+	slicecopy := make([]int, len(slice1))
+	copy(slicecopy, slice1)
+	fmt.Println(slicecopy)
+
+	// var slice []int   for nil slice
+
+	for i, v := range slice1 {
+		fmt.Printf("The index is %d and the value is %d\n", i, v)
+	}
+
+	// slices equal methods
+
+	if slices.Equal(slice1, slicecopy) {
+		fmt.Println("The slices are equal")
+	} else {
+		fmt.Println("The slices are not equal")
+	}
+
+	twod := make([][]int, 3)
+
+	for i := 0; i < 3; i++ {
+		inner := i + 1
+		twod[i] = make([]int, inner)
+		for j := 0; j < inner; j++ {
+			twod[i][j] = i + j
+		}
+	}
+	fmt.Println(twod)
+
+	slice3 := slice1[2:4]
+	fmt.Println(slice3)
+
+	fmt.Printf("The capacity of the slice3 is %d\n", cap(slice3))
+	fmt.Printf("The length of the slice3 is %d\n", len(slice3))
+}
