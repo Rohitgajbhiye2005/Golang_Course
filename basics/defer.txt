@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	process(2)
+	// we can have multiple defer func in function
+	// defer use the lifo pattern
+
+}
+
+func process(i int) {
+
+	defer fmt.Println("This is the first defer function")
+	defer fmt.Println("The value of deffered i is ", i)
+	defer fmt.Println("This is the second defer function")
+	defer fmt.Println("This is the third defer function")
+	i++
+	fmt.Println("The valus of i is ", i)
+	fmt.Println("This is normal exection function")
+}
