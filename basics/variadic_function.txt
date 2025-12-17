@@ -1,0 +1,33 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	// when we dont know how much input para we have to pass infunciton then we use the variadic function
+	// it is declare but ... inside the para its called the ellipsis
+
+	// func functionname(para int,para2 int,para3...type)returntype{
+	// 	codeblock
+	// 	return
+	// }
+
+	fmt.Println(sum("the sum is ", 1, 2, 3, 4, 5))
+
+	// pass the slice
+
+	nums := []int{1, 2, 3, 4, 5, 6}
+
+	res, ans := sum("the sum of slice is ", nums...)
+	fmt.Println(res, ans)
+
+}
+
+// it consider the ellipsis as an array or slice
+func sum(returntype string, nums ...int) (string, int) {
+	total := 0
+	for _, v := range nums {
+		total += v
+	}
+	return returntype, total
+}
