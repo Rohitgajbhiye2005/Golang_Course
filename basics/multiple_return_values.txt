@@ -1,0 +1,43 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func main() {
+	// sytax for multiple return value in functions
+	//  func <name>(parameter1 type1,parameter2 type2,...)(returntype1, returntype2,...){
+	// 	codeblock
+	// 	return returnvalue1,returnvalue2,..
+	//  }
+
+	res := divide
+	fmt.Println(res(6, 2))
+
+	resu, err := compare(2, 2)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(resu)
+	}
+}
+
+func divide(a, b int) (int, int) {
+	quotient := a / b
+	rem := a % b
+	return quotient, rem
+}
+
+// with the error as an return type
+
+func compare(a, b int) (string, error) {
+	if a > b {
+		return "a is greater than b", nil
+	} else if a < b {
+		return "b is greater than a", nil
+	} else {
+		return "", errors.New("unable to compare the both")
+	}
+
+}
