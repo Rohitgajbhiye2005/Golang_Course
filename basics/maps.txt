@@ -1,0 +1,79 @@
+package main
+
+import (
+	"fmt"
+	"maps"
+)
+
+func main() {
+	// var mapvariable map[key]valuetype
+	// mapvariable=make(map[keytype]valuetype)
+
+	// using map literal
+	// mapvariable=map[keytype]valuetype{
+	// 	key1:value1,
+	// 	key2,value2,
+	// }
+
+	mymap := make(map[string]int)
+
+	fmt.Println(mymap)
+
+	mymap["key1"] = 9
+	mymap["code"] = 18
+	fmt.Println(mymap)
+	fmt.Println(mymap["code"])
+	fmt.Println(mymap["Rohit"])
+
+	delete(mymap, "code")
+	fmt.Println(mymap)
+
+	mymap["key2"] = 10
+	mymap["key3"] = 11
+	mymap["key4"] = 12
+	mymap["key5"] = 13
+
+	fmt.Println(mymap)
+
+	// clear(mymap)
+	// fmt.Println(mymap)
+
+	// to check whether the value is associated or not
+
+	value, unk := mymap["key2"]
+	fmt.Println(value)
+	fmt.Println(unk)
+
+	mymap2 := map[string]int{"a": 5, "b": 10}
+	fmt.Println(mymap2)
+
+	if maps.Equal(mymap, mymap2) {
+		fmt.Println("The both the map are equal")
+	} else {
+		fmt.Println("The maps are not equal")
+	}
+
+	for k, v := range mymap {
+		fmt.Printf("The key is %d and the value is %v\n", k, v)
+	}
+
+	mapp := make(map[string]int)
+	if mapp != nil {
+		fmt.Println("The map is initialized with the nil value")
+	} else {
+		fmt.Println("The map is not initialized with the nil value")
+	}
+
+	// imp if we initalized map with empty so to add ele in it we need to use make again
+
+	mapp = make(map[string]int)
+	mapp["key1"] = 3
+	fmt.Println(mapp)
+
+	// nested maps
+	nested := make(map[string]map[string]int)
+
+	nested["map1"] = mymap
+	fmt.Println(nested)
+
+}
