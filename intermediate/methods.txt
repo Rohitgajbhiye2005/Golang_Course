@@ -1,0 +1,52 @@
+package main
+
+import "fmt"
+
+type Rectange struct {
+	length int
+	width  int
+}
+
+// method with the value receiver
+func (r Rectange) area() int {
+	return r.length * r.width
+}
+
+// method with the pointer receiver
+
+func (r *Rectange) scale(factor int) {
+	r.length *= factor
+	r.width *= factor
+}
+
+func main() {
+	r := Rectange{
+		length: 10,
+		width:  20,
+	}
+	// It's pass by value so it is not modifying the actual struct value
+	fmt.Println("The area of rectangle before changing is ", r.area())
+	r.scale(3)
+
+	// It's the pointer to the structs so its modify the value of actual struct
+	areaa := r.area()
+
+	fmt.Println("The area of rectangle after the changing is ", areaa)
+
+	num := myint(-1)
+	fmt.Println(num.Ispositive())
+	num1 := myint(5)
+	fmt.Println(num1.Ispositive())
+
+	fmt.Println(num.welcome())
+}
+
+type myint int
+
+func (m myint) Ispositive() bool {
+	return m > 0
+}
+
+func (myint) welcome() string {
+	return "Hello world"
+}
