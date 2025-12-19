@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+type person struct {
+	name string
+	age  int
+}
+
+type emp struct {
+	id   person
+	city string
+}
+
+func (p person) intro() {
+	fmt.Printf("Hi, I'm %s and I'm %d years old.\n", p.name, p.age)
+}
+
+func main() {
+
+	empi := emp{
+		id:   person{name: "Rohit", age: 12},
+		city: "Nagpur",
+	}
+
+	fmt.Println(empi.id.name)
+	fmt.Println(empi.id.age)
+
+	empi.id.intro()
+}
