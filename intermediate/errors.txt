@@ -1,0 +1,64 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func sqrt(x int) (int, error) {
+	if x < 0 {
+		return 0, errors.New("Math Error: input value is negative")
+	}
+	return 1, nil
+}
+
+func process(data []byte) error {
+	if len(data) == 0 {
+		return errors.New("Error: Empty data")
+	}
+	return nil
+}
+
+func main() {
+
+	// res, err := sqrt(16)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
+	// fmt.Println(res)
+
+	// res2, err2 := sqrt(-16)
+	// if err2 != nil {
+	// 	fmt.Println(err2)
+	// 	return
+	// }
+	// fmt.Println(res2)
+
+	// data := []byte{}
+
+	// // if err := process(data); err != nil {
+	// // 	fmt.Println(err)
+	// // 	return
+	// // }
+	// fmt.Println("Data processed succesfully")
+
+	err1 := eprocess()
+
+	if err1 != nil {
+		fmt.Println("Error:", err1)
+		return
+	}
+
+}
+
+type myerror struct {
+	message string
+}
+
+func (m *myerror) Error() string {
+	return fmt.Sprintf("Error %s", m.message)
+}
+
+func eprocess() error {
+	return &myerror{"Custom error message"}
+}
