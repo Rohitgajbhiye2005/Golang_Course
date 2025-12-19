@@ -1,0 +1,56 @@
+package main
+
+import "fmt"
+
+func swap[T any](a, b T) (T, T) {
+	return b, a
+}
+
+type stack[T any] struct {
+	elements []T
+}
+
+func (s *stack[T]) push(element T) {
+	s.elements = append(s.elements, element)
+}
+
+func (s *stack[T]) pop() (T, bool) {
+	if len(s.elements) == 0 {
+		var zero T
+		return zero, false
+	}
+	element := s.elements[len(s.elements)-1]
+	s.elements = s.elements[:(len(s.elements) - 1)]
+	return element, true
+}
+
+func (s *stack[T]) isEmpty() bool {
+	return len(s.elements) == 0
+}
+
+func (s stack[T]) printall() {
+	if len(s.elements) == 0 {
+		fmt.Println(0)
+	} else {
+		for _, v := range s.elements {
+			fmt.Println(v)
+		}
+	}
+}
+
+func main() {
+	x, y := 1, 2
+	x1, y1 := "Rohit", "Gajbhiye"
+	fmt.Println(swap(x, y))
+	fmt.Println(swap(x1, y1))
+
+	isstack := stack[int]{}
+	isstack.push(1)
+	isstack.push(2)
+	isstack.push(3)
+	fmt.Println(isstack.isEmpty())
+	isstack.printall()
+	fmt.Println(isstack.pop())
+	isstack.printall()
+
+}
