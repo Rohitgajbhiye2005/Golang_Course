@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+	"regexp"
+)
+
+func main() {
+
+	// for email matching regex pattern
+	re := regexp.MustCompile(`^[a-zA-Z0-9._+%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`)
+
+	// test string
+	email1 := "user@gmail.com"
+	email2 := "rohitgajbhiye"
+
+	fmt.Println(re.MatchString(email1))
+
+	fmt.Println(re.MatchString(email2))
+}
