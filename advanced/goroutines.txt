@@ -1,0 +1,37 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	// basically goroutines are the function with just go keyword it will bring back that function to the background and once it is finish it brings that process on the main
+	// if main is finished then goroutines are not executed
+	fmt.Println("Before go routnie")
+	go hello()
+	fmt.Println("After go routines")
+	// we cant assign gorounies functionn to a varible if we have to do it then we have to wrap this also in function inside main
+	go print()
+	go printt()
+	time.Sleep(2 * time.Second)
+}
+
+func print() {
+	for i := 0; i < 5; i++ {
+		fmt.Println("Number is ", i, time.Now())
+		time.Sleep(1 * time.Millisecond)
+	}
+}
+
+func printt() {
+	for _, v := range "ABCDE" {
+		fmt.Println("The char is", string(v), time.Now())
+		time.Sleep(2 * time.Millisecond)
+	}
+}
+
+func hello() {
+	time.Sleep(1 * time.Second)
+	fmt.Println("Say hello")
+}
