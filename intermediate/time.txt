@@ -1,0 +1,24 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println(time.Now())
+
+	specifiedtime := time.Date(2024, time.July, 30, 12, 0, 0, 0, time.UTC)
+	fmt.Println(specifiedtime)
+
+	parsedtime, _ := time.Parse("2006-12-12", "2020-05-06")
+	fmt.Println(parsedtime)
+
+	// formating time
+	t := time.Now()
+	fmt.Println("Formated time: ", t.Format("06-01-02 00-04-15"))
+
+	onedaylater := t.Add(time.Hour * 24)
+	fmt.Println(onedaylater)
+
+}
