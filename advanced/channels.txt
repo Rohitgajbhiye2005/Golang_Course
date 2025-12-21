@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	greet := make(chan string)
+
+	greeting := "Hello world"
+
+	go func() {
+		greet <- greeting
+		for _, x := range "abcde" {
+			greet <- string(x)
+		}
+	}() // it is blocking becuse it try to receive the value continoiuly
+	// and for this reasong it is blockding the remaing flow of the program
+	// so by using go routines it goes background and once it finished it come back
+
+	go func() {
+		receiver := <-greet
+		fmt.Println(receiver)
+
+	}()
+
+	for range 5 {
+		rcvr := <-greet
+		fmt.Println(rcvr)
+	}
+
+	time.Sleep(1 * time.Second)
+	fmt.Println("End of file")
+
+}
