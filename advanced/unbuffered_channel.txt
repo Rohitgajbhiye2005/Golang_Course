@@ -1,0 +1,30 @@
+package main
+
+import (
+	"fmt"
+)
+// so baciscally the unbuffered channels means they need the immisdiate rcvr they cant able to store the value
+// they just need the immidiate receiver
+func main() {
+	ch := make(chan int)
+
+
+
+	// go func() {
+	// 	time.Sleep(1 * time.Second)
+	// 	fmt.Println("1 second is completed")
+	// }()
+
+	// go func() {
+	// 	ch <- 1
+	// 	time.Sleep(2 * time.Second)
+	// 	fmt.Println("2 second is completed")
+	// }()
+	go func() {
+		rcvr := <-ch
+		fmt.Println(rcvr)
+	}()
+
+	ch <- 1
+
+}
