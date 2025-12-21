@@ -5,6 +5,8 @@ import (
 )
 // so baciscally the unbuffered channels means they need the immisdiate rcvr they cant able to store the value
 // they just need the immidiate receiver
+
+// consider it as the pipe holding vertically downward so it need immidiate rcvr to hold the value
 func main() {
 	ch := make(chan int)
 

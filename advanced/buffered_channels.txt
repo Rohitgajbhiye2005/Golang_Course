@@ -1,0 +1,46 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+// in buffered channels it just hold some value so it doesnt requeired the immidate rcvr
+// consider it as the pipe holding vertically downward but with the tap at the last so it can hold some value
+// the sytax is same we just give the capacity after the type
+// ch:=make(chan int ,2) this is syntax for buffered channel
+// blocking starts only when buffered is full
+
+// func main() {
+// 	ch := make(chan int, 2)
+// 	go func() {
+// 		time.Sleep(2 * time.Second)
+// 		ch <- 1
+// 		ch <- 2
+// 	}()
+
+// 	fmt.Println("Value", <-ch)
+
+// 	fmt.Println("Value", <-ch)
+// 	fmt.Println("end of the program")
+// }
+
+func main() {
+
+	ch := make(chan int, 2)
+	ch <- 2
+	ch <- 3
+	fmt.Println("Receving the values")
+	go func() {
+		time.Sleep(2 * time.Second)
+		fmt.Println(<-ch)
+	}()
+	fmt.Println("blocking starts")
+	fmt.Println(<-ch)
+
+	ch <- 4
+	fmt.Println("blocking ends")
+	fmt.Println(<-ch)
+	fmt.Println(<-ch)
+
+}
