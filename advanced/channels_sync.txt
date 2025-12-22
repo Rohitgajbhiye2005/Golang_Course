@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	num := 3
+	done := make(chan int, num)
+
+	for i := range num {
+		go func(id int) {
+			fmt.Printf("The %d go routine is running\n", id)
+			time.Sleep(2 * time.Second)
+			done <- id
+		}(i)
+	}
+
+	for range num {
+		<-done // wait for each go routines to finish
+
+	}
+	fmt.Println("All go routines are completed")
+}
